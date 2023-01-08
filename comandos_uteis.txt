@@ -1,0 +1,36 @@
+----------------sequelize comandos -------------------------
+
+npx sequelize-cli init / inicia a elaboração do sequelize criando as pastas pré definidas;
+
+npx sequelize migration:create — name nome-exemplo-migration / cria uma nova migration;
+
+npx sequelize-cli db:migrate / executa as migrations;
+
+npx sequelize-cli db:migrate:undo / faz rollback da ultima migration;
+
+npx sequelize-cli db:migrate:undo:all / faz rollback todas migrations;
+
+npx sequelize-cli seed:generate --name test-seeder / cria uma nova seeder;
+
+npx sequelize-cli db:seed:all / executa todas as seeders;
+
+npx sequelize-cli db:seed:undo / faz rollback da ultima seeder;
+
+npx sequelize-cli db:seed:undo:all / faz rollback de todas as seeders;
+
+----------- pacotes instalados -------------------------
+
+npm install dotenv;
+npm install express;
+npm install mysql2; // pode ser dev dependencia;
+npm install sequelize;
+
+=== devDependencies ===
+npm install @tsconfig/node16;
+npm install @types/express;
+npm install @types/node;
+npm install @types/sequelize;
+npm install nodemon;
+npm install sequelize-cli;
+npm install ts-node-dev;
+npm install typescript;

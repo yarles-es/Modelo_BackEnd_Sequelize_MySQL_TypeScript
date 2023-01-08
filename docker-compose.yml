@@ -1,0 +1,46 @@
+# codigo para criação de 2 containers, um de banco de dados, e outro para api#
+
+version: "3"
+
+services:
+  node:
+    image: node:16.14
+    build: .
+    container_name: exemplo_container
+    tty: true
+    stdin_open: true
+    command: bash
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: db
+      API_HOST: 'node'
+      API_PORT: 3000
+    networks:
+      - exemplo_network
+
+  #---------------------------------------------------#
+
+  db:
+    image: mysql:8.0.23
+    container_name: exemplo_container_db
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - 3306:3306
+    networks:
+      - exemplo_network
+
+#-----------------------------------------------------#
+
+networks:
+  exemplo_network:
+    driver: bridge
